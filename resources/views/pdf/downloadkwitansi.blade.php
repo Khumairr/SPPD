@@ -182,7 +182,7 @@
                 <table style="padding-bottom: 12px;">
                     <tr>
                         <td rowspan="3" style="vertical-align: top; width: 75px; font-size: 10px; padding: 5px;">Keterangan</td>
-                        <td style="vertical-align: top; font-size: 10px; padding: 6px 6px 0px 6px;">:</td>
+                        <td style="vertical-align: top; font-size: 10px; padding: 6px 16px 0px 6px;">:</td>
                         <td>
                             <table>
                                 <tr>
