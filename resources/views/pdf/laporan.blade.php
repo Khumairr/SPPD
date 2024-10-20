@@ -114,7 +114,7 @@
             <tr>
                 <td>Tanggal</td>
                 <td>:</td>
-                <td>{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('l, d F Y') }}</td>
+                <td>{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }}</td>
             </tr>
             <tr>
                 <td>Nomor</td>
