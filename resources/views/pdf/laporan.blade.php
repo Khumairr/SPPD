@@ -114,7 +114,7 @@
             <tr>
                 <td>Tanggal</td>
                 <td>:</td>
-                <td>{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('d F Y') }}</td>
+                <td>{{ \Carbon\Carbon::now()->locale('id')->translatedFormat('l, d F Y') }}</td>
             </tr>
             <tr>
                 <td>Nomor</td>
@@ -141,7 +141,7 @@
 
         <div class="content-section">
             <p style="margin-bottom: 5px"><strong>I. Dasar Pelaksanaan</strong></p>
-            <p style="text-indent: 2em;">Surat Perintah Tugas Nomor: {{ $details->first()->no_spt }} Tanggal {{ \Carbon\Carbon::parse($details->first()->tgl_spt)->locale('id')->translatedFormat('l, d F Y') }}.</p>
+            <p style="text-indent: 2em;">Surat Perintah Tugas Nomor: {{ $details->first()->no_spt }} Tanggal {{ \Carbon\Carbon::parse($details->first()->tgl_spt)->locale('id')->translatedFormat('d F Y') }}.</p>
         </div>
 
         <div class="content-section">
