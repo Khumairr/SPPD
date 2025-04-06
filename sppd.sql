@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 20 Okt 2024 pada 17.00
+-- Waktu pembuatan: 06 Apr 2025 pada 16.23
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -59,7 +59,8 @@ CREATE TABLE `kantor` (
 INSERT INTO `kantor` (`id_kantor`, `nama_kantor`, `alamat_kantor`, `uang_harian`, `transport`, `akomodasi`) VALUES
 (1, 'BKN Jakarta', 'jl.kgisadiu', 540000, 500000, 0),
 (2, 'BKN Bandung', 'bjbdwbodowdb', 370000, 476000, 400000),
-(3, 'Polres Tangsel', 'jl.ijbqiwjdn', 100000, 0, 0);
+(3, 'Polres Tangsel', 'jl.ijbqiwjdn', 100000, 0, 0),
+(6, 'wefdsgjku', 'sdfdfdsf', 324234, 423434, 34243);
 
 -- --------------------------------------------------------
 
@@ -158,8 +159,8 @@ CREATE TABLE `role` (
 --
 
 INSERT INTO `role` (`id_role`, `nama_role`) VALUES
-(1, 'User'),
-(2, 'Super Admin');
+(1, 'user'),
+(2, 'superadmin');
 
 -- --------------------------------------------------------
 
@@ -186,7 +187,7 @@ CREATE TABLE `spj` (
 
 INSERT INTO `spj` (`id_spj`, `no_kwitansi`, `id_sppd`, `file_spt`, `file_spd`, `file_visum`, `file_laporan`, `file_kwitansi`, `file_poto`, `file_notabensin`) VALUES
 (8, '19823982', 39, 'spj/bUwr0k9YCKmRRxfZUIPc7ULWIqa9utw5AwDakEDg.pdf', 'spj/fDEm44QsewBbdrdp3tAMUGxrh2WqieCpEDwmrE7l.pdf', 'spj/sG871V7uN5rzAiEA9gRS3voWIhJeKYutUNO9k74S.pdf', 'spj/Vx5gz7ZqcvLOXxCLQALuzr6fJljtWQ8aRTiDP5Sw.pdf', 'spj/W5iMC5u2SICsiqcIoEGIpEI6vnIHdjMYeyjpXBc2.pdf', 'spj/w3YbCj3j2RitRMyoBHvAyzSghCM9oNt5j3yOUDYK.png', 'spj/0WVmo85e5KJ6ToKpB9HXCDrqkTjuV3qjWj1t1GPa.png'),
-(9, '23423434', 40, 'spj/Mgmq4TPFL2ic3qMvffPWiGQq618IkRs2tVv9faXu.pdf', 'spj/QOw4VIPyoN8YUMeKYMDddLTadX53LEARHuwFbTue.pdf', 'spj/qR6lJgMMhkbnoNsMYjWceEnE21ALpgJzaWbEfqv6.pdf', 'spj/MqRJvFRJPTe45IQeulbmE4wijuZZ7yamg4FsR0xm.pdf', 'spj/wqM60SNkbmxRwq3986Od985fEm3lC5zvINEjuUhN.pdf', 'spj/lFXsjSA8CpVOuuPDb0rz3Oj1hUcsNBzgxvQEjYu2.png', 'spj/wcrkAARw6YXz7vK8boD9OsvJS0svYDp7GIeQyxXv.png'),
+(9, '23423434', 67, 'spj/IyKis19eux4ZYgBWPKTuJewFt5jzVSaDYiXPlMxn.pdf', 'spj/QOw4VIPyoN8YUMeKYMDddLTadX53LEARHuwFbTue.pdf', 'spj/qR6lJgMMhkbnoNsMYjWceEnE21ALpgJzaWbEfqv6.pdf', 'spj/MqRJvFRJPTe45IQeulbmE4wijuZZ7yamg4FsR0xm.pdf', 'spj/wqM60SNkbmxRwq3986Od985fEm3lC5zvINEjuUhN.pdf', 'spj/lFXsjSA8CpVOuuPDb0rz3Oj1hUcsNBzgxvQEjYu2.png', 'spj/wcrkAARw6YXz7vK8boD9OsvJS0svYDp7GIeQyxXv.png'),
 (10, '893798213', 46, 'spj/MhKWMYj0YH8w4dXN9b4KzOCL0nIJsTsh3YwQ08wS.pdf', 'spj/XS3R9slwxYDHdrb9Cg1cuFegPuow3QqX6yt0vSLV.pdf', 'spj/W4aqlWEt1uQAjOHyjPUBHRMt84yqbLjeyrp1E7o6.pdf', 'spj/Wsh5iPxzGF8VGwzh0treT5UZ5n2oteshI2Pfwz31.pdf', 'spj/R5IECUv3tnpak5CVR3Z9Xd2MEy8h6Kq0DjF727K6.pdf', 'spj/NYrXuo18VmQa7rhQL006f4EZ0lWVtoGg514gVeUt.png', 'spj/5S0VfdWE4EWxY4JODQmppahX1ruzmKslVfsXZ3Hx.png'),
 (11, '29021213', 52, 'spj/2rgPX0f5T52KTFHkXlaiOtJcCwigf5RctHY8bOZs.pdf', 'spj/KEijJZz68kNcCN7OhuJTWHxzrMmiovmjByRrVu6j.pdf', 'spj/XudJWcVHlMSlm1vmkPwynhsQg4ERbPRqoyBv3ni1.pdf', 'spj/uHDdkQajuudkqZl80FvJVNeYwrK5Y8xlMGaAmVcy.pdf', 'spj/7pjCNnPQgcWDEP5AZjZlDZB88HMEMnqsHpEzLOqg.pdf', 'spj/47mP5lstXAcBNPqxhbDbgHcR3r4YGaWKMCnec2OM.png', 'spj/KeHw0V1J7Mmxkl5xIlx68bUeJig6SA6ls03500sK.png'),
 (12, '874981432', 63, 'spj/INdfeC6ithdZPSaAiYaewdzj3tBE8pAu1JP8RnwP.pdf', 'spj/vgFThXkxDSHnYNbefk9lGYb0CzvgxuudiSZoWp87.pdf', 'spj/6t7hp2TVV9NInMKGYPkzn6cMloIgPGwAySHkBNaX.pdf', 'spj/kmy2wf4hJA8IqkZ2y8MGsA9X1ka1T1lZ2HhDGsTP.pdf', 'spj/K9utwnMDqBXohNbRQ8FSXiVlqcDtzb2qj2lHY4w0.pdf', 'spj/gzqjcCPXiILRakegVdZyJI1VTNk1wyw6bg8vzqyb.png', 'spj/CZnhRm1i8cPqRvz9zvpmAfrn5O67gO0kKcerEndn.pdf');
@@ -199,7 +200,7 @@ INSERT INTO `spj` (`id_spj`, `no_kwitansi`, `id_sppd`, `file_spt`, `file_spd`, `
 
 CREATE TABLE `tim_kerja` (
   `id_tim_kerja` int(200) NOT NULL,
-  `anggaran_awal` int(10) NOT NULL,
+  `anggaran_awal` int(150) NOT NULL,
   `sisa_anggaran` int(150) NOT NULL,
   `tahun_anggaran` int(4) NOT NULL,
   `nama_tim` varchar(100) NOT NULL
@@ -210,9 +211,8 @@ CREATE TABLE `tim_kerja` (
 --
 
 INSERT INTO `tim_kerja` (`id_tim_kerja`, `anggaran_awal`, `sisa_anggaran`, `tahun_anggaran`, `nama_tim`) VALUES
-(3, 1000000000, 1, 2024, 'jwnfekn'),
-(4, 2000000000, -113964468, 2025, 'khjed'),
-(5, 300000000, -6287, 2024, ';jekdj'),
+(4, 2000000000, -121284468, 2026, 'khjed'),
+(5, 300000000, -1146287, 2026, ';jekdj'),
 (6, 10000000, -1560, 2024, 'P2INKA');
 
 -- --------------------------------------------------------
@@ -261,7 +261,17 @@ INSERT INTO `tr_kwitansi` (`id_kwitansi`, `no_kwitansi`, `id_sppd`, `id_tr_sppd_
 (65, '2980912', 58, 91, 'noindoiqw', 140, 160, 180, 480, 2, 2, 2, 70, 80, 90),
 (66, '874981432', 63, 98, 'kajskjbasd', 60000, 406000, 400000, 866000, 2, 1, 1, 30000, 406000, 400000),
 (67, '874981432', 63, 99, 'kajskjbasd', 600000, 0, 400000, 1000000, 2, 0, 1, 300000, 406000, 400000),
-(68, '874981432', 63, 100, 'kajskjbasd', 740000, 0, 1200000, 1940000, 2, 0, 3, 370000, 476000, 400000);
+(68, '874981432', 63, 100, 'kajskjbasd', 740000, 0, 1200000, 1940000, 2, 0, 3, 370000, 476000, 400000),
+(69, '2345454', 64, 101, 'erthgewrh', 740000, 0, 400000, 1140000, 2, 0, 1, 370000, 476000, 400000),
+(70, '32423434', 66, 104, 'g3rgrgreg', 200000, 0, 0, 200000, 2, 2, 2, 100000, 0, 0),
+(71, '32423434', 66, 105, 'g3rgrgreg', 200000, 0, 0, 200000, 2, 2, 2, 100000, 0, 0),
+(72, '23423434', 67, 106, 'ergergerger', 1110000, 1428000, 400000, 2938000, 3, 3, 1, 370000, 476000, 400000),
+(73, '23423434', 67, 107, 'ergergerger', 1110000, 1428000, 1200000, 3738000, 3, 3, 3, 370000, 476000, 400000),
+(74, '912392', 69, 112, 'iqwubdiuqbwd', 200000, 0, 16604, 216604, 2, 0, 2, 100000, 0, 8302),
+(75, '423434', 68, 108, 'h4hth', 1080000, 500000, 0, 1580000, 2, 1, 2, 540000, 500000, 0),
+(76, '423434', 68, 109, 'h4hth', 1080000, 1000000, 0, 2080000, 2, 2, 2, 540000, 500000, 0),
+(77, '423434', 68, 110, 'h4hth', 1080000, 500000, 0, 1580000, 2, 1, 1, 540000, 500000, 0),
+(78, '423434', 68, 111, 'h4hth', 1080000, 1000000, 0, 2080000, 2, 2, 2, 540000, 500000, 0);
 
 -- --------------------------------------------------------
 
@@ -302,7 +312,14 @@ INSERT INTO `tr_sppd` (`id_sppd`, `no_spt`, `ppk`, `perihal_sppd`, `angkutan`, `
 (60, 'gg', 'Drs. FUAD,MPA', 'ggdd', 'Darat', 'Polres Tangsel', '2024-10-11', '2024-10-17', '6 hari', '2024-10-11', 'Aktif'),
 (61, '7687687', 'Drs. FUAD,MPA', 'hpiwefi iepf iefub eijf ie', 'Udara', 'BKN Bandung', '2024-10-12', '2024-10-15', '3 hari', '2024-10-12', 'Aktif'),
 (62, '10973032', 'Drs. FUAD,MPA', 'jhwvdfjhfvef ekfjbef', 'Udara', 'BKN Bandung', '2024-10-12', '2024-10-19', '7 hari', '2024-10-12', 'Aktif'),
-(63, 'viu4982/.298,29', 'Drs. FUAD,MPA', 'uvuivui uvuyvu uvuvuyfterdhckjhfo noouoiugo iyfuyfuyf yguyuyguyg fcdtrdytfuyfuyfuyjv j uiuiuy', 'Darat', 'BKN Bandung', '2024-10-18', '2024-10-22', '4 hari', '2024-10-17', 'Laporan Submitted');
+(63, 'viu4982/.298,29', 'Drs. FUAD,MPA', 'uvuivui uvuyvu uvuvuyfterdhckjhfo noouoiugo iyfuyfuyf yguyuyguyg fcdtrdytfuyfuyfuyjv j uiuiuy', 'Darat', 'BKN Bandung', '2024-10-18', '2024-10-22', '4 hari', '2024-10-17', 'Laporan Submitted'),
+(64, '221r1f23r3', 'Drs. FUAD,MPA', 'dfhgergrg', 'Udara', 'BKN Bandung', '2024-10-21', '2024-10-24', '3 hari', '2024-10-20', 'Laporan Submitted'),
+(65, 'fkyfufk', 'Drs. FUAD,MPA', 'fifiyfiyfiufi', 'Darat', 'BKN Bandung', '2024-11-09', '2024-11-12', '3 hari', '2024-11-09', 'Aktif'),
+(66, '23423434', 'Drs. FUAD,MPA', 'ertgergergerg', 'Darat', 'Polres Tangsel', '2024-11-20', '2024-11-29', '9 hari', '2024-11-20', 'Laporan Submitted'),
+(67, '123312', 'Drs. FUAD,MPA', 'efgefefvefv', 'Udara', 'BKN Bandung', '2024-12-09', '2024-12-24', '15 hari', '2024-12-24', 'Laporan Submitted'),
+(68, '3434343', 'Drs. FUAD,MPA', 'fgbfgfgfg', 'Udara', 'BKN Jakarta', '2024-12-19', '2024-12-25', '6 hari', '2024-12-12', 'Laporan Submitted'),
+(69, '2131231', 'Drs. FUAD,MPA', 'qkwj kdj f eif wej ffijbfoef', 'Darat', 'Polres Tangsel', '2025-01-16', '2025-01-22', '6 hari', '2025-01-07', 'Laporan Submitted'),
+(70, '893749823', 'Drs. FUAD,MPA', 'h rif if ofbjfboihfoidf', 'Udara', 'BKN Bandung', '2025-01-17', '2025-01-09', '8 hari', '2025-01-15', 'Aktif');
 
 -- --------------------------------------------------------
 
@@ -350,7 +367,20 @@ INSERT INTO `tr_sppd_pegawai` (`id_tr_sppd_pegawai`, `id_sppd`, `id_staff`, `nam
 (97, 62, 4, '5'),
 (98, 63, 7, '5'),
 (99, 63, 1, '5'),
-(100, 63, 8, '5');
+(100, 63, 8, '5'),
+(101, 64, 4, '5'),
+(102, 65, 1, '6'),
+(103, 65, 7, '6'),
+(104, 66, 4, '4'),
+(105, 66, 1, '4'),
+(106, 67, 7, '4'),
+(107, 67, 8, '4'),
+(108, 68, 4, '4'),
+(109, 68, 6, '4'),
+(110, 68, 7, '4'),
+(111, 68, 5, '4'),
+(112, 69, 8, '4'),
+(113, 70, 7, '4');
 
 -- --------------------------------------------------------
 
@@ -373,12 +403,11 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id_user`, `username`, `password`, `nama_tim`, `nama_role`, `created_at`, `updated_at`) VALUES
-(17, 'apapun', '$2y$10$geS6nri98thzieXjukRsE.j//opBQTrxWnHaHRbw84qOB1xP5F0tu', '4', '2', '2024-09-29 19:08:29', '2024-10-02 08:54:24'),
-(20, 'iyaiyaiya', '$2y$10$n7oCUJx3M6HqJDoUw2u5hu9toPYcdHZeBbkstgQLp8rePSNaWYyAO', '4', '2', '2024-10-01 22:03:41', '2024-10-01 22:03:41'),
-(21, 'user', '$2y$10$X6.u.mseOGuOBVTeLa86COqtZQ5bvharG93zY3lRhE5k7d5bQON42', '4', '1', '2024-10-06 19:49:26', '2024-10-06 19:49:36'),
+(17, 'apapu', '$2y$10$geS6nri98thzieXjukRsE.j//opBQTrxWnHaHRbw84qOB1xP5F0tu', '4', '2', '2024-09-29 19:08:29', '2024-11-19 08:59:49'),
+(21, 'user', '$2y$10$wanzTYoWIicHRpd57xmd/u5wLUNkTJ4AceXlKGBeXg1PKmSqxXnWu', '4', '1', '2024-10-06 19:49:26', '2025-02-24 08:07:23'),
 (22, 'superadmin', '$2y$10$miIgFBkG..whLvyHSBDWJ.xuIskUyGaOdqvz9ju03vuTnhTMWcs9G', '5', '2', '2024-10-06 19:49:55', '2024-10-06 19:49:55'),
-(23, 'tim1', '$2y$10$z4Apu4yijClZQk7HSc9aFuW7Ql6hzynZq5tnpSz8hrWYYiMS1FvM6', '6', '1', '2024-10-10 00:12:02', '2024-10-10 00:12:02'),
-(24, 'tim2', '$2y$10$aAE7EryKbH9sg1//O51FI.0Ekmb6M63h5EUUw7N1F..N51/vtSbIC', '6', '1', '2024-10-10 00:28:46', '2024-10-10 00:28:46');
+(24, 'tim21', '$2y$10$aAE7EryKbH9sg1//O51FI.0Ekmb6M63h5EUUw7N1F..N51/vtSbIC', '6', '1', '2024-10-10 00:28:46', '2024-11-19 20:52:29'),
+(33, 'tim1', '$2y$10$9mCHBOCT5loOqUlTWa1hUOlASZeOsb4ZaDZnkUqo6tDGHYT9P1Lmi', '4', '1', '2024-11-20 07:28:53', '2024-12-04 07:41:13');
 
 --
 -- Indexes for dumped tables
@@ -480,13 +509,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT untuk tabel `kantor`
 --
 ALTER TABLE `kantor`
-  MODIFY `id_kantor` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_kantor` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `karyawan`
 --
 ALTER TABLE `karyawan`
-  MODIFY `id_staff` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_staff` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT untuk tabel `migrations`
@@ -516,31 +545,31 @@ ALTER TABLE `spj`
 -- AUTO_INCREMENT untuk tabel `tim_kerja`
 --
 ALTER TABLE `tim_kerja`
-  MODIFY `id_tim_kerja` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_tim_kerja` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `tr_kwitansi`
 --
 ALTER TABLE `tr_kwitansi`
-  MODIFY `id_kwitansi` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id_kwitansi` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT untuk tabel `tr_sppd`
 --
 ALTER TABLE `tr_sppd`
-  MODIFY `id_sppd` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=64;
+  MODIFY `id_sppd` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT untuk tabel `tr_sppd_pegawai`
 --
 ALTER TABLE `tr_sppd_pegawai`
-  MODIFY `id_tr_sppd_pegawai` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=101;
+  MODIFY `id_tr_sppd_pegawai` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=114;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
-  MODIFY `id_user` bigint(250) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_user` bigint(250) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

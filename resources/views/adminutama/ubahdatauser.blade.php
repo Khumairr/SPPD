@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('adminutama.navbar.admin')
 
 @section('content')
 <div class="mt-3">
     <h2 class="text-center">Edit Data User</h2>
-    <form action="{{ route('updateDataUser', $user->id_user) }}" method="POST">
+    <form action="{{ route('updatedatauser', $user->id_user) }}" method="POST">
     @csrf
     @method('PUT') <!-- Menggunakan PUT untuk update data -->
     
@@ -45,7 +45,7 @@
     
     <br>
     <button type="submit" class="btn btn-primary mr-5">Simpan</button> 
-    <a href="{{ route('datauser') }}" class="btn btn-secondary">
+    <a href="{{ route('adminutama.datauser') }}" class="btn btn-secondary">
         <img src="{{ asset('img/back.png') }}" alt="Back Icon" style="width: 20px; height: 20px; margin-right: 5px;">
         Back
     </a>

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('adminutama.navbar.admin')
 
 @section('content')
 <div class="container d-flex align-items-center justify-content-center min-vh-100">
@@ -11,7 +11,7 @@
             </div>
         @endif
 
-        <form action="{{ route('storedatauser') }}" method="POST">
+        <form action="{{ route('tambahdatauser') }}" method="POST">
             @csrf
             <div class="form-group">
                 <label><i class="fa fa-user"></i> Username</label>
@@ -42,7 +42,7 @@
 
         <!-- Back Button Centered -->
         <div class="text-center mt-3">
-            <a href="{{ route('datauser') }}" class="btn btn-secondary">
+            <a href="{{ route('adminutama.datauser') }}" class="btn btn-secondary">
                 <img src="{{ asset('img/back.png') }}" alt="Back Icon" style="width: 20px; height: 20px; margin-right: 5px;">
                 Back
             </a>

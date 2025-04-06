@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -21,4 +21,4 @@
 
         <button type="button" class="btn btn-danger">Cetak</button>
     </div>
-@endsection
+@endsection -->

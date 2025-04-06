@@ -12,12 +12,25 @@
         body {
             background: url('{{ asset('img/blue.jpg') }}') no-repeat center center fixed;
             background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            color: #444;
         }
 
         .login-card {
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            padding: 2rem;
+            background-color: rgba(255, 255, 255, 0.9);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
         }
 
         .login-header {
@@ -26,8 +39,44 @@
         }
 
         .login-header img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            height: 60px;
+            margin-bottom: 1rem;
+        }
+
+        .login-header h3 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-label {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 0.8rem;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+            border-color: #007bff;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
         }
 
         .alert-dismissible .btn-close {
@@ -35,16 +84,34 @@
         }
 
         .footer-text {
-            margin-top: 1.5rem;
-            font-size: 0.8rem;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        @media (max-width: 576px) {
+            .login-card {
+                padding: 1.5rem;
+            }
+
+            .login-header h3 {
+                font-size: 1.5rem;
+            }
+
+            .btn-primary {
+                padding: 0.6rem;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 
-<body class="d-flex align-items-center">
+<body>
+
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-4">
+            <div class="col-md-6 col-lg-4">
                 <div class="card login-card">
                     <div class="card-body">
                         <div class="login-header">
@@ -64,16 +131,15 @@
                         <form action="{{ route('actionlogin') }}" method="post">
                             @csrf
                             <div class="mb-3">
-                                <label for="username" class="form-label"><strong>Username</strong></label>
+                                <label for="username" class="form-label">Username</label>
                                 <input type="text" name="username" id="username" class="form-control" placeholder="Enter your username" required autocomplete='off'>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label"><strong>Password</strong></label>
+                                <label for="password" class="form-label">Password</label>
                                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter your password" required>
                             </div><br>
                             <button type="submit" class="btn btn-primary w-100">Log In</button>
                         </form>
-                        <br>
                     </div>
                 </div>
             </div>

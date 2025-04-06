@@ -1,9 +1,9 @@
-@extends('layouts.app')
+@extends('adminutama.navbar.admin')
 
 @section('content')
 <div class="mt-3">
     <h2 class="text-center">Tambah Data Tim Kerja</h2>
-    <form action="{{ route('storedatatimkerja') }}" method="POST">
+    <form action="{{ route('tambahdatatimkerja') }}" method="POST">
         @csrf
         <div class="form-group">
             <label for="nama_tim">Tim Kerja:</label>
@@ -23,7 +23,7 @@
         </div>
         <br>
         <button type="submit" class="btn btn-primary mr-5">Tambah</button>
-        <a href="{{ route('datatimkerja') }}" class="btn btn-secondary">
+        <a href="{{ route('adminutama.datatimkerja') }}" class="btn btn-secondary">
         <img src="{{ asset('img/back.png') }}" alt="Back Icon" style="width: 20px; height: 20px; margin-right: 5px;">
         Back
     </a>

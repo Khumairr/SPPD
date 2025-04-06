@@ -40,13 +40,13 @@
             </a>
             <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser1">
                 <li><a class="dropdown-item" href="{{ route('profile.detailprofile') }}">Profile</a></li>
-                <li><hr class="dropdown-divider"></li>
-                @if($roleName === 'Super Admin')
+                <!-- <li><hr class="dropdown-divider"></li>
+                <!-- @if($roleName === 'Super Admin')
                     <li><a class="dropdown-item" href="{{ route('superadmin.datauser') }}">Data User</a></li>
                     <li><a class="dropdown-item" href="{{ route('superadmin.datatimkerja') }}">Data Tim Kerja</a></li>
                     <li><a class="dropdown-item" href="{{ route('superadmin.datakantor') }}">Data Kantor</a></li>
                     <li><a class="dropdown-item" href="{{ route('superadmin.datapegawai') }}">Data Pegawai</a></li>
-                @endif
+                @endif -->
             </ul>
         </div>
     </div>

@@ -82,7 +82,7 @@ class SPPDController extends Controller
             return view('dashboard', [
                 'anggaran_awal' => $timKerja->anggaran_awal ?? 0,
                 'sisa_anggaran' => $timKerja->sisa_anggaran ?? 0,
-                'tahun_anggaran' => $timKerja->tahun_anggaran ?? date('Y'), // Default to current year if not found
+                'tahun_anggaran' => $timKerja->tahun_anggaran ?? date('Y'), // Default tahun sekarang jika tidak ditemukan
                 'roleName' => $roleName
             ]);
         }
@@ -125,7 +125,7 @@ class SPPDController extends Controller
 
         public function getKaryawan($nama_staff)
         {
-            $karyawan = Karyawan::where('nama_staff', $nama_staff)->first(); // Ambil data karyawan berdasarkan NIP
+            $karyawan = Karyawan::where('nama_staff', $nama_staff)->first(); // Ambil data karyawan berdasarkan Nama staff
             return response()->json($karyawan); // Kirim sebagai JSON
         }
 
@@ -889,286 +889,286 @@ class SPPDController extends Controller
             return view('profile.detailprofile');
         }
 
-        public function dataUser()
-        {
-            $users = User::all(); // Ambil semua data user
-            return view('superadmin.datauser', compact('users')); // Kirim data ke view
-        }        
+        // public function dataUser()
+        // {
+        //     $users = User::all(); // Ambil semua data user
+        //     return view('superadmin.datauser', compact('users')); // Kirim data ke view
+        // }        
 
-        public function datatimkerja() 
-        {
-            // Mengambil semua data dari tabel tim_kerja
-            $timkerja = TimKerja::all();
+        // public function datatimkerja() 
+        // {
+        //     // Mengambil semua data dari tabel tim_kerja
+        //     $timkerja = TimKerja::all();
             
-            // Mengirim data ke view
-            return view('superadmin.datatimkerja', compact('timkerja'));
-        }
+        //     // Mengirim data ke view
+        //     return view('superadmin.datatimkerja', compact('timkerja'));
+        // }
 
-        public function datapegawai()
-        {
-            // Ambil semua data dari tabel karyawan
-            $karyawans = Karyawan::all();
+        // public function datapegawai()
+        // {
+        //     // Ambil semua data dari tabel karyawan
+        //     $karyawans = Karyawan::all();
 
-            // Kirim data ke view
-            return view('superadmin.datapegawai', compact('karyawans'));
-        }
+        //     // Kirim data ke view
+        //     return view('superadmin.datapegawai', compact('karyawans'));
+        // }
 
-        public function datakantor() 
-        {
-            // Mengambil semua data kantor dari tabel kantor
-            $kantor = Kantor::all();
+        // public function datakantor() 
+        // {
+        //     // Mengambil semua data kantor dari tabel kantor
+        //     $kantor = Kantor::all();
             
-            // Mengirim data ke view
-            return view('superadmin.datakantor', compact('kantor'));
-        }
+        //     // Mengirim data ke view
+        //     return view('superadmin.datakantor', compact('kantor'));
+        // }
 
-        public function create()
-        {
-            $timKerja = TimKerja::all(); // Ambil semua data tim kerja
-            $roles = Role::all(); // Ambil semua data role
-            return view('your-view-name', compact('timKerja', 'roles'));
-        }
+        // public function create()
+        // {
+        //     $timKerja = TimKerja::all(); // Ambil semua data tim kerja
+        //     $roles = Role::all(); // Ambil semua data role
+        //     return view('addtimkerja', compact('timKerja', 'roles'));
+        // }
 
-        public function storeTimKerja(Request $request)
-        {
-            // Validasi input
-            $request->validate([
-                'nama_tim' => 'required|string|max:255',
-                'anggaran' => 'required|numeric',
-                'sisa_anggaran' => 'required|numeric',
-                'tahun' => 'required|numeric|min:4',
-            ]);
+        // public function storeTimKerja(Request $request)
+        // {
+        //     // Validasi input
+        //     $request->validate([
+        //         'nama_tim' => 'required|string|max:255',
+        //         'anggaran' => 'required|numeric',
+        //         'sisa_anggaran' => 'required|numeric',
+        //         'tahun' => 'required|numeric|min:4',
+        //     ]);
 
-            // Simpan data ke tabel tim_kerja
-            TimKerja::create([
-                'nama_tim' => $request->nama_tim,
-                'anggaran_awal' => $request->anggaran,
-                'sisa_anggaran' => $request->sisa_anggaran,
-                'tahun_anggaran' => $request->tahun,
-            ]);
+        //     // Simpan data ke tabel tim_kerja
+        //     TimKerja::create([
+        //         'nama_tim' => $request->nama_tim,
+        //         'anggaran_awal' => $request->anggaran,
+        //         'sisa_anggaran' => $request->sisa_anggaran,
+        //         'tahun_anggaran' => $request->tahun,
+        //     ]);
 
-            return redirect()->route('superadmin.datatimkerja')->with('success', 'Data Tim Kerja berhasil ditambahkan!');
-        }
+        //     return redirect()->route('superadmin.datatimkerja')->with('success', 'Data Tim Kerja berhasil ditambahkan!');
+        // }
         
-        public function storeKantor(Request $request)
-        {
-            // Validasi input
-            $request->validate([
-                'nama_kantor' => 'required|string|max:255',
-                'alamat' => 'required|string|max:255',
-                'uang_harian' => 'required|numeric',
-                'transport' => 'required|numeric',
-                'akomodasi' => 'required|numeric',
-            ]);
+        // public function storeKantor(Request $request)
+        // {
+        //     // Validasi input
+        //     $request->validate([
+        //         'nama_kantor' => 'required|string|max:255',
+        //         'alamat' => 'required|string|max:255',
+        //         'uang_harian' => 'required|numeric',
+        //         'transport' => 'required|numeric',
+        //         'akomodasi' => 'required|numeric',
+        //     ]);
 
-            // Simpan data ke tabel kantor
-            Kantor::create([
-                'nama_kantor' => $request->nama_kantor,
-                'alamat_kantor' => $request->alamat,
-                'uang_harian' => $request->uang_harian,
-                'transport' => $request->transport,
-                'akomodasi' => $request->akomodasi,
-            ]);
+        //     // Simpan data ke tabel kantor
+        //     Kantor::create([
+        //         'nama_kantor' => $request->nama_kantor,
+        //         'alamat_kantor' => $request->alamat,
+        //         'uang_harian' => $request->uang_harian,
+        //         'transport' => $request->transport,
+        //         'akomodasi' => $request->akomodasi,
+        //     ]);
 
-            // Redirect ke halaman data kantor dengan pesan sukses
-            return redirect()->route('superadmin.datakantor')->with('success', 'Data Kantor berhasil ditambahkan!');
-        }
+        //     // Redirect ke halaman data kantor dengan pesan sukses
+        //     return redirect()->route('superadmin.datakantor')->with('success', 'Data Kantor berhasil ditambahkan!');
+        // }
 
-        public function storePegawai(Request $request)
-        {
-            // Validasi input dari form
-            $request->validate([
-                'nip' => 'required|string|max:100',
-                'nama' => 'required|string|max:255',
-                'golongan' => 'required|string|max:255',
-                'jabatan' => 'required|string|max:255',
-            ]);
+        // public function storePegawai(Request $request)
+        // {
+        //     // Validasi input dari form
+        //     $request->validate([
+        //         'nip' => 'required|string|max:100',
+        //         'nama' => 'required|string|max:255',
+        //         'golongan' => 'required|string|max:255',
+        //         'jabatan' => 'required|string|max:255',
+        //     ]);
 
-            Karyawan::create([
-                'nip' => $request->nip,
-                'nama_staff' => $request->nama,
-                'golongan' => $request->golongan,
-                'jabatan' => $request->jabatan,
-            ]);
+        //     Karyawan::create([
+        //         'nip' => $request->nip,
+        //         'nama_staff' => $request->nama,
+        //         'golongan' => $request->golongan,
+        //         'jabatan' => $request->jabatan,
+        //     ]);
 
-            return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil ditambahkan!');
-        }
+        //     return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil ditambahkan!');
+        // }
 
-        public function editPegawai($id)
-        {
-            // Cari pegawai berdasarkan ID (id_staff)
-            $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
+        // public function editPegawai($id)
+        // {
+        //     // Cari pegawai berdasarkan ID (id_staff)
+        //     $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
 
-            // Kirim data pegawai ke view editdatapegawai
-            return view('superadmin.editdatapegawai', compact('pegawai'));
-        }
+        //     // Kirim data pegawai ke view editdatapegawai
+        //     return view('superadmin.editdatapegawai', compact('pegawai'));
+        // }
 
-        public function updatePegawai(Request $request, $id)
-        {
-            // Validasi input
-            $request->validate([
-                'nip' => 'required|string|max:255',
-                'nama' => 'required|string|max:255',
-                'golongan' => 'required|string|max:255',
-                'jabatan' => 'required|string|max:255',
-            ]);
+        // public function updatePegawai(Request $request, $id)
+        // {
+        //     // Validasi input
+        //     $request->validate([
+        //         'nip' => 'required|string|max:255',
+        //         'nama' => 'required|string|max:255',
+        //         'golongan' => 'required|string|max:255',
+        //         'jabatan' => 'required|string|max:255',
+        //     ]);
 
-            // Temukan pegawai berdasarkan ID (id_staff) dan update datanya
-            $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
-            $pegawai->update([
-                'nip' => $request->nip,
-                'nama_staff' => $request->nama,
-                'golongan' => $request->golongan,
-                'jabatan' => $request->jabatan,
-            ]);
+        //     // Temukan pegawai berdasarkan ID (id_staff) dan update datanya
+        //     $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
+        //     $pegawai->update([
+        //         'nip' => $request->nip,
+        //         'nama_staff' => $request->nama,
+        //         'golongan' => $request->golongan,
+        //         'jabatan' => $request->jabatan,
+        //     ]);
 
-            // Redirect kembali ke halaman data pegawai dengan pesan sukses
-            return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil diperbarui!');
-        }
+        //     // Redirect kembali ke halaman data pegawai dengan pesan sukses
+        //     return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil diperbarui!');
+        // }
 
-        public function deletePegawai($id)
-        {
-            // Temukan pegawai berdasarkan ID dan hapus datanya
-            $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
-            $pegawai->delete();
+        // public function deletePegawai($id)
+        // {
+        //     // Temukan pegawai berdasarkan ID dan hapus datanya
+        //     $pegawai = Karyawan::where('id_staff', $id)->firstOrFail();
+        //     $pegawai->delete();
 
-            // Redirect kembali ke halaman data pegawai dengan pesan sukses
-            return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil dihapus!');
-        }
+        //     // Redirect kembali ke halaman data pegawai dengan pesan sukses
+        //     return redirect()->route('superadmin.datapegawai')->with('success', 'Data Pegawai berhasil dihapus!');
+        // }
 
-        public function editdatatimkerja($id)
-        {
-            $timkerja = TimKerja::findOrFail($id); // Mengambil data berdasarkan ID
-            return view('superadmin.editdatatimkerja', compact('timkerja'));
-        }
+        // public function editdatatimkerja($id)
+        // {
+        //     $timkerja = TimKerja::findOrFail($id); // Mengambil data berdasarkan ID
+        //     return view('superadmin.editdatatimkerja', compact('timkerja'));
+        // }
 
-        public function updateTimKerja(Request $request, $id)
-        {
-            // Validasi input
-            $request->validate([
-                'nama_tim' => 'required|string|max:255',
-                'anggaran_awal' => 'required|numeric',
-                'sisa_anggaran' => 'required|numeric',
-                'tahun_anggaran' => 'required|numeric',
-            ]);
+        // public function updateTimKerja(Request $request, $id)
+        // {
+        //     // Validasi input
+        //     $request->validate([
+        //         'nama_tim' => 'required|string|max:255',
+        //         'anggaran_awal' => 'required|numeric',
+        //         'sisa_anggaran' => 'required|numeric',
+        //         'tahun_anggaran' => 'required|numeric',
+        //     ]);
 
-            // Temukan tim kerja berdasarkan ID dan perbarui datanya
-            $timkerja = TimKerja::findOrFail($id);
-            $timkerja->update([
-                'nama_tim' => $request->nama_tim,
-                'anggaran_awal' => $request->anggaran_awal,
-                'sisa_anggaran' => $request->sisa_anggaran,
-                'tahun_anggaran' => $request->tahun_anggaran,
-            ]);
+        //     // Temukan tim kerja berdasarkan ID dan perbarui datanya
+        //     $timkerja = TimKerja::findOrFail($id);
+        //     $timkerja->update([
+        //         'nama_tim' => $request->nama_tim,
+        //         'anggaran_awal' => $request->anggaran_awal,
+        //         'sisa_anggaran' => $request->sisa_anggaran,
+        //         'tahun_anggaran' => $request->tahun_anggaran,
+        //     ]);
 
-            return redirect()->route('superadmin.datatimkerja')->with('success', 'Data Tim Kerja berhasil diperbarui!');
-        }
+        //     return redirect()->route('superadmin.datatimkerja')->with('success', 'Data Tim Kerja berhasil diperbarui!');
+        // }
 
-        public function deletetimkerja($id)
-        {
-            $tim = TimKerja::find($id);
-            if ($tim) {
-                $tim->delete();
-                return redirect()->route('superadmin.datatimkerja')->with('success', 'Data tim kerja berhasil dihapus.');
-            }
-            return redirect()->route('superadmin.datatimkerja')->with('error', 'Data tim kerja tidak ditemukan.');
-        }
+        // public function deletetimkerja($id)
+        // {
+        //     $tim = TimKerja::find($id);
+        //     if ($tim) {
+        //         $tim->delete();
+        //         return redirect()->route('superadmin.datatimkerja')->with('success', 'Data tim kerja berhasil dihapus.');
+        //     }
+        //     return redirect()->route('superadmin.datatimkerja')->with('error', 'Data tim kerja tidak ditemukan.');
+        // }
 
-        public function editdatakantor($id)
-        {
-            $kantor = Kantor::findOrFail($id);
-            return view('superadmin.editdatakantor', compact('kantor'));
-        }
+        // public function editdatakantor($id)
+        // {
+        //     $kantor = Kantor::findOrFail($id);
+        //     return view('superadmin.editdatakantor', compact('kantor'));
+        // }
 
-        public function updatekantor(Request $request, $id)
-        {
-            $request->validate([
-                'nama_kantor' => 'required|string|max:255',
-                'alamat_kantor' => 'required|string|max:255',
-                'uang_harian' => 'required|numeric',
-                'transport' => 'required|numeric',
-                'akomodasi' => 'required|numeric',
-            ]);
+        // public function updatekantor(Request $request, $id)
+        // {
+        //     $request->validate([
+        //         'nama_kantor' => 'required|string|max:255',
+        //         'alamat_kantor' => 'required|string|max:255',
+        //         'uang_harian' => 'required|numeric',
+        //         'transport' => 'required|numeric',
+        //         'akomodasi' => 'required|numeric',
+        //     ]);
 
-            $kantor = Kantor::findOrFail($id);
-            $kantor->update($request->all());
+        //     $kantor = Kantor::findOrFail($id);
+        //     $kantor->update($request->all());
 
-            return redirect()->route('superadmin.datakantor')->with('success', 'Data kantor berhasil diperbarui.');
-        }
+        //     return redirect()->route('superadmin.datakantor')->with('success', 'Data kantor berhasil diperbarui.');
+        // }
 
-        public function deletekantor($id)
-        {
-            $kantor = Kantor::findOrFail($id);
-            $kantor->delete();
+        // public function deletekantor($id)
+        // {
+        //     $kantor = Kantor::findOrFail($id);
+        //     $kantor->delete();
 
-            return redirect()->route('superadmin.datakantor')->with('success', 'Data kantor berhasil dihapus.');
-        }
+        //     return redirect()->route('superadmin.datakantor')->with('success', 'Data kantor berhasil dihapus.');
+        // }
 
-        public function addDataUser()
-        {
-            $tim_kerja = TimKerja::all();
-            $roles = Role::all();
+        // public function addDataUser()
+        // {
+        //     $tim_kerja = TimKerja::all();
+        //     $roles = Role::all();
             
-            return view('superadmin.adddatauser', compact('tim_kerja', 'roles')); // Send data to the view
-        }
+        //     return view('superadmin.adddatauser', compact('tim_kerja', 'roles')); // Send data to the view
+        // }
 
-        public function storeuserdata(Request $request)
-        {
-            $user = User::create([
-                'email' => $request->email,
-                'username' => $request->username,
-                'password' => Hash::make($request->password),
-                'nama_role' => $request->nama_role,
-                'nama_tim' => $request->nama_tim,
-                'active' => 1
-            ]);
-            Session::flash('message', 'Akun Anda sudah Aktif silahkan Login menggunakan username dan password.');
+        // public function storeuserdata(Request $request)
+        // {
+        //     $user = User::create([
+        //         'email' => $request->email,
+        //         'username' => $request->username,
+        //         'password' => Hash::make($request->password),
+        //         'nama_role' => $request->nama_role,
+        //         'nama_tim' => $request->nama_tim,
+        //         'active' => 1
+        //     ]);
+        //     Session::flash('message', 'Akun Anda sudah Aktif silahkan Login menggunakan username dan password.');
         
-            $users = User::all();
+        //     $users = User::all();
         
-            return view('superadmin.datauser', compact('users'));
-        }                  
+        //     return view('superadmin.datauser', compact('users'));
+        // }                  
 
-        public function editdataUser($id_user)
-        {
-            $user = User::findOrFail($id_user); // Temukan user berdasarkan id
-            $tim_kerja = TimKerja::all(); // Mengambil semua data tim kerja
-            $roles = Role::all(); // Mengambil semua data role
-            return view('superadmin.editdatauser', compact('user', 'tim_kerja', 'roles')); // Kirim data user ke view
-        }
+        // public function editdataUser($id_user)
+        // {
+        //     $user = User::findOrFail($id_user); // Temukan user berdasarkan id
+        //     $tim_kerja = TimKerja::all(); // Mengambil semua data tim kerja
+        //     $roles = Role::all(); // Mengambil semua data role
+        //     return view('superadmin.editdatauser', compact('user', 'tim_kerja', 'roles')); // Kirim data user ke view
+        // }
         
-        public function updateDataUser(Request $request, $id_user)
-        {
-            $request->validate([
-                'username' => 'required',
-                'nama_tim' => 'required',
-                'nama_role' => 'required',
-                // Jangan mewajibkan password diisi
-            ]);
+        // public function updateDataUser(Request $request, $id_user)
+        // {
+        //     $request->validate([
+        //         'username' => 'required',
+        //         'nama_tim' => 'required',
+        //         'nama_role' => 'required',
+        //         // Jangan mewajibkan password diisi
+        //     ]);
         
-            $user = User::findOrFail($id_user);
+        //     $user = User::findOrFail($id_user);
             
-            // Update data user
-            $user->username = $request->username;
-            $user->nama_tim = $request->nama_tim;
-            $user->nama_role = $request->nama_role;
+        //     // Update data user
+        //     $user->username = $request->username;
+        //     $user->nama_tim = $request->nama_tim;
+        //     $user->nama_role = $request->nama_role;
         
-            // Jika password diisi, lakukan hashing
-            if ($request->password) {
-                $user->password = Hash::make($request->password);
-            }
+        //     // Jika password diisi, lakukan hashing
+        //     if ($request->password) {
+        //         $user->password = Hash::make($request->password);
+        //     }
         
-            $user->save();
+        //     $user->save();
         
-            return redirect()->route('superadmin.datauser')->with('success', 'User updated successfully.');
-        }
+        //     return redirect()->route('superadmin.datauser')->with('success', 'User updated successfully.');
+        // }
 
-        public function deleteUser($id_user)
-        {
-            $user = User::findOrFail($id_user);
-            $user->delete();
+        // public function deleteUser($id_user)
+        // {
+        //     $user = User::findOrFail($id_user);
+        //     $user->delete();
         
-            return redirect()->route('superadmin.datauser')->with('success', 'User deleted successfully.');
-        }        
+        //     return redirect()->route('superadmin.datauser')->with('success', 'User deleted successfully.');
+        // }        
 
     }

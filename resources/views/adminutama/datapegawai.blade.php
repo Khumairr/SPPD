@@ -1,13 +1,7 @@
-@extends('layouts.app')
+@extends('adminutama.navbar.admin')
 
 @section('content')
 <div class="container mt-4">
-    <!-- Tombol Back di Pojok Kiri Atas -->
-    <div class="d-flex justify-content-between align-items-center">
-        <a href="{{ route('dashboard') }}" class="btn btn-secondary">
-            <img src="{{ asset('img/back.png') }}" alt="Back Icon" style="width: 20px; height: 20px; margin-right: 5px;">
-            Back
-        </a>
         <h3 class="text-center flex-grow-1">Data Pegawai</h3>
     </div>
 
@@ -20,7 +14,7 @@
         </div>
     @endif
 
-    <a href="{{ route('adddatapegawai') }}" class="btn btn-secondary text-white mb-3" style="transition: 0.3s;">+ Tambah Pegawai</a>
+    <a href="{{ route('adminutama.adddatapegawai') }}" class="btn btn-secondary text-white mb-3" style="transition: 0.3s;">+ Tambah Pegawai</a>
     
     <table class="table table-bordered text-center">
         <thead class="thead-light">
@@ -42,8 +36,8 @@
                 <td>{{ $karyawan->golongan }}</td>
                 <td>{{ $karyawan->jabatan }}</td>
                 <td>
-                    <a href="{{ route('editdatapegawai', $karyawan->id_staff) }}" class="btn btn-secondary text-white mb-3" style="transition: 0.3s;">EDIT</a> <br>
-                    <form action="{{ route('deletepegawai', $karyawan->id_staff) }}" method="POST" style="display:inline;">
+                    <a href="{{ route('adminutama.ubahdatapegawai', $karyawan->id_staff) }}" class="btn btn-secondary text-white mb-3" style="transition: 0.3s;">EDIT</a> <br>
+                    <form action="{{ route('hapuspegawai', $karyawan->id_staff) }}" method="POST" style="display:inline;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger text-white" style="transition: 0.3s;" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">HAPUS</button>

@@ -10,41 +10,48 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .bg-custom-aqua {
-            background-color: #abdbe3 !important;
+            background-color: #e0f7fa !important;
+            color: #333 !important;
         }
 
         .sidebar {
             height: 100vh;
-            background-color: #e2f0f0;
+            background-color: #f0f5f5;
             position: fixed;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
             border-right: 2px solid #007bff;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
         }
 
         .sidebar .nav-link {
             margin-bottom: 15px;
             border-radius: 10px;
-            padding: 10px;
-            transition: background-color 0.3s;
+            padding: 12px 15px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            font-weight: 500;
         }
 
         .sidebar .nav-link:hover {
             background-color: #87d7ea;
             color: white;
+            transform: translateX(5px);
         }
 
         .sidebar .nav-link.active {
             background-color: #007bff;
             color: white;
+            transform: translateX(5px);
         }
 
         .sidebar h4 {
             font-weight: bold;
-            color: #333;
+            color: #555;
+            margin-top: 20px;
         }
 
         .switch {
@@ -68,7 +75,7 @@
             right: 0;
             bottom: 0;
             background-color: #ccc;
-            transition: .4s;
+            transition: 0.4s;
             border-radius: 34px;
         }
 
@@ -80,7 +87,7 @@
             left: 4px;
             bottom: 4px;
             background-color: white;
-            transition: .4s;
+            transition: 0.4s;
             border-radius: 50%;
         }
 
@@ -92,25 +99,31 @@
             transform: translateX(26px);
         }
 
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
         @media (max-width: 768px) {
             .sidebar {
                 position: static;
                 height: auto;
                 border-right: none;
+                margin-bottom: 20px;
             }
 
             .sidebar .nav-link {
                 text-align: center;
-                margin-bottom: 5px;
+                margin-bottom: 10px;
             }
+        }
+
+        /* Smooth transitions for buttons and sidebar */
+        .btn-dark,
+        .btn-secondary,
+        .btn-primary {
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        .btn-dark:hover,
+        .btn-secondary:hover,
+        .btn-primary:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -118,14 +131,14 @@
 <body class="bg-light text-dark">
     <div class="container-fluid">
         <div class="row">
-            @if (Request::path() !== 'login' && Request::path() !== 'register') 
+            @if (Request::path() !== 'login' && Request::path() !== 'register')
             <!-- Sidebar -->
             <div class="col-md-2 d-flex flex-column justify-content-between sidebar">
                 <div>
                     <div class="text-center mt-2 d-flex align-items-center justify-content-center">
                         <img src="{{ asset('img/logoutama.png') }}" alt="Logo Tanggerang" style="width: 50px; height: auto;" class="mr-2">
                         <h4 class="ml-1 mt-1 mb-1">SPPD</h4>
-                    </div>          
+                    </div>
                     <hr class="border-2" style="border-top: 2px solid;">
                     <ul class="nav flex-column mt-4">
                         <li class="nav-item">
@@ -159,7 +172,6 @@
                         <input type="checkbox" id="toggle-aqua-mode">
                         <span class="slider round"></span>
                     </label>
-                    <br>
                     <hr class="border-2" style="border-top: 2px solid;">
                     <a class="btn btn-dark mt-3" href="{{ route('actionlogout') }}">Log Out</a>
                 </div>
@@ -173,20 +185,18 @@
     </div>
 
     <script>
-        window.onload = function() {
+        window.onload = function () {
             const toggleAquaMode = document.getElementById('toggle-aqua-mode');
-            console.log("Page loaded, Aqua Mode script running...");
 
             if (localStorage.getItem('aqua-mode') === 'enabled') {
                 toggleAquaMode.checked = true;
                 document.body.classList.add('bg-custom-aqua', 'text-dark');
-                console.log("Aqua Mode enabled.");
             }
 
             let totalKeseluruhan = 0;
             const totalKwitansiFields = document.querySelectorAll('.total_kwitansi');
 
-            totalKwitansiFields.forEach(function(input) {
+            totalKwitansiFields.forEach(function (input) {
                 totalKeseluruhan += parseFloat(input.value) || 0;
             });
 
@@ -194,19 +204,12 @@
         };
 
         const toggleAquaMode = document.getElementById('toggle-aqua-mode');
-        toggleAquaMode.addEventListener('change', function() {
+        toggleAquaMode.addEventListener('change', function () {
             document.body.classList.toggle('bg-light');
             document.body.classList.toggle('bg-custom-aqua');
 
             const isAquaEnabled = document.body.classList.contains('bg-custom-aqua');
-
-            if (isAquaEnabled) {
-                localStorage.setItem('aqua-mode', 'enabled');
-                console.log("Aqua Mode preference saved.");
-            } else {
-                localStorage.setItem('aqua-mode', 'disabled');
-                console.log("Aqua Mode preference cleared.");
-            }
+            localStorage.setItem('aqua-mode', isAquaEnabled ? 'enabled' : 'disabled');
         });
     </script>
 
